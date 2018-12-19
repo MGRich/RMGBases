@@ -20,6 +20,7 @@ namespace RMGUpdater
         private static void Main(string[] args)
         {
             bool f = false;
+            bool y = false;
             int id = 0;
             if (File.Exists("id")) id = int.Parse(File.ReadAllText("id"));
             WebClient c = new WebClient();
@@ -61,6 +62,7 @@ namespace RMGUpdater
                         catch (IOException) 
                         {
                             Console.WriteLine("could not write, continuing...");
+                            y = true;
                         }
                     }
                 }
@@ -83,7 +85,8 @@ namespace RMGUpdater
                 process.StartInfo.WorkingDirectory = Path.GetDirectoryName(Directory.GetCurrentDirectory());
             }
             process.Start();
-            Environment.Exit(0);
+            if (!y) Environment.Exit(0);
+            else Enviroment.Exit(3);
         }
     }
 }
