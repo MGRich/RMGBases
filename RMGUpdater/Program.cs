@@ -55,11 +55,11 @@ namespace RMGUpdater
                 {
                     if (!reader.Entry.IsDirectory)
                     {
-                        try 
+                        try
                         {
                             reader.WriteEntryToDirectory(@"..\", new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
                         }
-                        catch (IOException) 
+                        catch (IOException)
                         {
                             Console.WriteLine("could not write, continuing...");
                             y = true;
@@ -86,7 +86,7 @@ namespace RMGUpdater
             }
             process.Start();
             if (!y) Environment.Exit(0);
-            else Enviroment.Exit(3);
+            else Environment.Exit(3);
         }
     }
 }
