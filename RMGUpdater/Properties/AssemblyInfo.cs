@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RMGBases")]
+[assembly: AssemblyTitle("RMGUpdater")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RMGBases")]
+[assembly: AssemblyProduct("RMGUpdater")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b2645e4c-f6b2-4a41-8f92-22764ae80c23")]
+[assembly: Guid("b9545ea2-0e14-4ec5-8aae-1d97ef7916ca")]
 
 // Version information for an assembly consists of the following four values:
 //

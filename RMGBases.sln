@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMGUpdater", "RMGBases\RMGUpdater.csproj", "{B2645E4C-F6B2-4A41-8F92-22764AE80C23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMGUpdater", "RMGUpdater\RMGUpdater.csproj", "{B9545EA2-0E14-4EC5-8AAE-1D97EF7916CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2645E4C-F6B2-4A41-8F92-22764AE80C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2645E4C-F6B2-4A41-8F92-22764AE80C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2645E4C-F6B2-4A41-8F92-22764AE80C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2645E4C-F6B2-4A41-8F92-22764AE80C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9545EA2-0E14-4EC5-8AAE-1D97EF7916CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9545EA2-0E14-4EC5-8AAE-1D97EF7916CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9545EA2-0E14-4EC5-8AAE-1D97EF7916CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9545EA2-0E14-4EC5-8AAE-1D97EF7916CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
