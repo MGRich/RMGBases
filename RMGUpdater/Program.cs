@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +54,14 @@ namespace RMGUpdater
                 {
                     if (!reader.Entry.IsDirectory)
                     {
-                        reader.WriteEntryToDirectory(@"..\", new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
+                        try 
+                        {
+                            reader.WriteEntryToDirectory(@"..\", new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
+                        }
+                        catch (IOException) 
+                        {
+                            Console.WriteLine("could not write, continuing...");
+                        }
                     }
                 }
                 reader.Cancel();
