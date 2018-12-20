@@ -22,6 +22,7 @@ namespace RMGUpdater
             bool f = false;
             bool y = false;
             int id = 0;
+            string r = args[0];
             if (File.Exists("id")) id = int.Parse(File.ReadAllText("id"));
             WebClient c = new WebClient();
             try
@@ -30,16 +31,23 @@ namespace RMGUpdater
                 if (p.Send("8.8.8.8", 1000).Status != IPStatus.Success)
                 {
                     Console.WriteLine("p");
-                    Environment.Exit(2);
+                    start(r, 1);
                 }
             }
             catch
             {
-                Environment.Exit(1);
+                start(r, 1);
             }
-            string repo = args[0];
             c.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0");
-            string data = c.DownloadString("https://api.github.com/repos/MGRich/" + repo + "/releases/latest");
+            string data = null;
+            try
+            {
+                data = c.DownloadString("https://api.github.com/repos/MGRich/" + r + "/releases/latest");
+            }
+            catch (WebException)
+            {
+                start(r, 3);
+            }
             JObject jdata = JObject.Parse(data);
             if (id != int.Parse(jdata.SelectToken("id").ToString()))
             {
@@ -78,15 +86,19 @@ namespace RMGUpdater
             Console.WriteLine("done");
             if (!f) Console.WriteLine("no change");
             Console.WriteLine(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            if (!y) start(r, 0); else start(r, 2);
+        }
+
+        private static void start(string r, int e = 0)
+        {
             Process process = new Process();
             {
-                process.StartInfo.FileName = repo;
-                process.StartInfo.Arguments = "1";
+                process.StartInfo.FileName = r;
+                process.StartInfo.Arguments = e.ToString();
                 process.StartInfo.WorkingDirectory = Path.GetDirectoryName(Directory.GetCurrentDirectory());
             }
             process.Start();
-            if (!y) Environment.Exit(0);
-            else Environment.Exit(3);
+            Environment.Exit(e);
         }
     }
 }
