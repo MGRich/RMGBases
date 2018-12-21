@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
-using Newtonsoft.Json;
 
-namespace RMGChangelog
+namespace RMGLibrary
 {
-    public class Data
+    public class Changelog
     {
-        public Data(string r)
+        public static string[] getData(string r)
         {
-
         }
     }
 }

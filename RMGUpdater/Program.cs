@@ -25,19 +25,6 @@ namespace RMGUpdater
             string r = args[0];
             if (File.Exists("id")) id = int.Parse(File.ReadAllText("id"));
             WebClient c = new WebClient();
-            try
-            {
-                Ping p = new Ping();
-                if (p.Send("8.8.8.8", 1000).Status != IPStatus.Success)
-                {
-                    Console.WriteLine("p");
-                    start(r, 1);
-                }
-            }
-            catch
-            {
-                start(r, 1);
-            }
             c.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0");
             string data = null;
             try
