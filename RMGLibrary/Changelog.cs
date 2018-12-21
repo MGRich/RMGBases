@@ -18,6 +18,7 @@ namespace RMGLibrary
             List<string[]> data = new List<string[]>();
             Internet.Download d = new Internet.Download();
             string s = d.getString("https://api.github.com/repos/MGRich/" + r + "/releases");
+            if (s == null) return new string[1][] { new string[2] { "If you see this, a network error ocurred. (Possibly a 403.)", "" } };
             JArray jdata = JArray.Parse(s);
             List<string> intl = new List<string>();
             foreach (JObject o in jdata.Children<JObject>())
