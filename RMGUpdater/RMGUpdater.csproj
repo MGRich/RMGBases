@@ -89,5 +89,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RMGLibrary\RMGLibrary.csproj">
+      <Project>{b8ae881b-883d-4c29-9bfa-4ec259ed4248}</Project>
+      <Name>RMGLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

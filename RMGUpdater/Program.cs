@@ -11,7 +11,7 @@ using SharpCompress.Common;
 using SharpCompress.Readers;
 using System.Reflection;
 using System.Diagnostics;
-using System.Net.NetworkInformation;
+using RMGLibrary;
 
 namespace RMGUpdater
 {
@@ -19,22 +19,15 @@ namespace RMGUpdater
     {
         private static void Main(string[] args)
         {
+            string r = args[0];
+            if (Internet.isConnected() == false) start(r, 1);
             bool f = false;
             bool y = false;
             int id = 0;
-            string r = args[0];
             if (File.Exists("id")) id = int.Parse(File.ReadAllText("id"));
-            WebClient c = new WebClient();
-            c.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0");
-            string data = null;
-            try
-            {
-                data = c.DownloadString("https://api.github.com/repos/MGRich/" + r + "/releases/latest");
-            }
-            catch (WebException)
-            {
-                start(r, 3);
-            }
+            Internet.Download d = new Internet.Download();
+            string data = d.getString("https://api.github.com/repos/MGRich/" + r + "/releases/latest");
+            if (data == null) start(r, 3);
             JObject jdata = JObject.Parse(data);
             if (id != int.Parse(jdata.SelectToken("id").ToString()))
             {
@@ -44,7 +37,7 @@ namespace RMGUpdater
                 Directory.CreateDirectory(@"temp\ext");
                 JToken asset = jdata.SelectToken("assets")[0];
                 Console.WriteLine();
-                c.DownloadFile(asset.SelectToken("browser_download_url").ToString(), @"temp\d");
+                if (d.getFile(asset.SelectToken("browser_download_url").ToString(), @"temp\d") == null) start(r, 4);
                 var reader = ReaderFactory.Open(File.OpenRead(@"temp\d"));
                 while (reader.MoveToNextEntry())
                 {
