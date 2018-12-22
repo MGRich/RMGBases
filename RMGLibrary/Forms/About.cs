@@ -23,7 +23,7 @@ namespace RMGLibrary
                 r = a;
                 pictureBox1.Image = b;
                 pictureBox2.Image = c;
-                label1.Text = "Made by RMGRich.\n" + d;
+                label1.Text = "Made by RMGRich.\n\n" + d;
             }
 
             private void showChangelog(object sender, EventArgs e)
